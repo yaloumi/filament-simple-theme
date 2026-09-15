@@ -1,0 +1,102 @@
+/*
+ * Filament Simple Theme: the sidebar and the user menu sit on the page ground,
+ * the content is an inset card. Plain CSS on Filament's own color variables, no build step.
+ * With tomatophp/filament-tomatophp-theme enabled it follows the brand paper, ink and border colors.
+ */
+.fi-body,
+.fi-layout {
+    background-color: var(--tp-paper, var(--gray-50, #fafafa));
+}
+
+.dark .fi-body,
+.dark .fi-layout {
+    background-color: var(--tp-surface, var(--gray-950, #09090b));
+}
+
+/* Sidebar: no panel of its own, compact items. */
+.fi-sidebar,
+.fi-sidebar-header,
+.fi-sidebar-nav,
+.fi-sidebar-footer {
+    background-color: transparent;
+    box-shadow: none;
+    --tw-ring-shadow: 0 0 #0000;
+}
+
+.fi-sidebar-header {
+    border-bottom: 0;
+}
+
+.fi-sidebar-nav {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-200, #e4e4e7) transparent;
+}
+
+.dark .fi-sidebar-nav {
+    scrollbar-color: var(--gray-700, #3f3f46) transparent;
+}
+
+.fi-sidebar-group-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gray-400, #a1a1aa);
+}
+
+.fi-sidebar-item-label {
+    font-size: 0.8125rem;
+}
+
+.fi-sidebar-item-btn {
+    border-radius: 0.625rem;
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+    outline: 1px solid var(--gray-200, #e4e4e7);
+    outline-offset: -1px;
+}
+
+.dark .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    background-color: var(--gray-900, #18181b);
+    outline-color: rgb(255 255 255 / 0.08);
+}
+
+/* User menu card in the sidebar footer. */
+.fi-sidebar-footer .fi-user-menu-trigger {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--gray-200, #e4e4e7);
+    border-radius: 0.875rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.dark .fi-sidebar-footer .fi-user-menu-trigger {
+    border-color: rgb(255 255 255 / 0.08);
+    background-color: var(--gray-900, #18181b);
+}
+
+/* Content: an inset card next to the sidebar. */
+@media (min-width: 64rem) {
+    .fi-main-ctn {
+        min-height: calc(100dvh - 1.5rem);
+        margin-block: 0.75rem;
+        margin-inline-end: 0.75rem;
+        border: 1px solid var(--tp-border, var(--gray-200, #e4e4e7));
+        border-radius: 1rem;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+        overflow: clip;
+    }
+
+    .dark .fi-main-ctn {
+        border-color: var(--tp-border, rgb(255 255 255 / 0.08));
+        background-color: var(--tp-ink, var(--gray-900, #18181b));
+    }
+}
+
+.fi-header-heading {
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
